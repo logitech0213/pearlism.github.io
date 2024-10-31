@@ -7,11 +7,28 @@ if %errorLevel% NEQ 0 (
     powershell -Command "Start-Process -File '%~f0' -Verb RunAs"
     exit /b
 )
+
 set "bazarPath=C:\Program Files\Snippingtool\bazar.sys"
 set "mapperPath=C:\Program Files\Snippingtool\map.exe"
 
+:: Log the start of the process
 echo Running mapper.exe with bazar.sys > log.txt 2>&1
-"%bazarPath%" "%mapperPath%" >> log.txt 2>&1
 
-echo - Made By Landen419
+:: Check if the mapperPath exists
+if not exist "%mapperPath%" (
+    echo Mapper executable not found at %mapperPath% >> log.txt 2>&1
+    pause
+    exit /b
+)
+
+:: Check if the bazarPath exists
+if not exist "%bazarPath%" (
+    echo Bazar.sys not found at %bazarPath% >> log.txt 2>&1
+    pause
+    exit /b
+)
+
+:: Run the mapper with bazar.sys as an argument
+"%mapperPath%" "%bazarPath%" >> log.txt 2>&1
+
 pause
