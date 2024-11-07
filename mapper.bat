@@ -8,8 +8,8 @@ if %errorLevel% NEQ 0 (
     exit /b
 )
 
-set "bazarPath=C:\Program Files\Snippingtool\bazar.sys"
-set "mapperPath=C:\Program Files\Snippingtool\map.exe"
+set "bazarPath=C:\Program Files\Snippingtool\hardware.sys"
+set "mapperPath=C:\Program Files\Snippingtool\mapper.exe"
 
 :: Log the start of the process
 echo Running mapper.exe with bazar.sys > log.txt 2>&1
