@@ -44,14 +44,14 @@ class RecoilMacroApp(ctk.CTk):
     def __init__(self):
         super().__init__()
         self.title("Chair Hub Recoil")
-        self.geometry('500x560')
+        self.geometry('600x650')
 
         self.aim_check = False
 
         # Fading background color variables
         self.bg_fade_state = 0  # Start with first color
         self.bg_fade_interval = 2000  # Time in ms between color change
-        self.bg_colors = ["#FF8C8C", "#FF4C4C", "#FF0000", "#FF69B4"]  # Colors to fade between
+        self.bg_colors = ["#FF8C8C", "#800080", "#FF0000", "#FF69B4"]  # Colors to fade between
 
         # Create the GUI and start fading the background color
         self.configure(bg=self.bg_colors[self.bg_fade_state])
@@ -62,13 +62,17 @@ class RecoilMacroApp(ctk.CTk):
         self.title_label.pack(pady=20)
 
         # UI Elements
-        self.aim_check_button = ctk.CTkButton(self, text="Aim Check Off", command=self.toggle_aim_check, fg_color="#FF4C4C", hover_color="#FF2A2A")
+        self.aim_check_button = ctk.CTkButton(self, text="Aim Check Off", command=self.toggle_aim_check, fg_color="#800080", hover_color="#FF2A2A")
         self.aim_check_button.pack(pady=10)
+
+        self.title_label = ctk.CTkButton(self, text="F1 TO ACTIVATE - F2 TO DEACTIVATE", fg_color="#800080", hover_color="#FF2A2A")
+        self.title_label.pack(pady=10)
+
 
         # X (Right) Control Slider and Value
         self.x_label = ctk.CTkLabel(self, text='X Control Value (Right)', text_color="white")
         self.x_label.pack(pady=5)
-        self.x_slider = ctk.CTkSlider(self, from_=0, to=40, number_of_steps=40, command=self.update_x_value, fg_color="#FF4C4C", progress_color="#FF0000")
+        self.x_slider = ctk.CTkSlider(self, from_=0, to=40, number_of_steps=40, command=self.update_x_value, fg_color="#800080", progress_color="#FF0000")
         self.x_slider.pack(pady=5)
         self.x_value_label = ctk.CTkLabel(self, text="X Value: 20", text_color="white")
         self.x_value_label.pack(pady=5)
@@ -76,7 +80,7 @@ class RecoilMacroApp(ctk.CTk):
         # Left Axis (Left) Control Slider and Value
         self.left_label = ctk.CTkLabel(self, text='Left Control Value (Left)', text_color="white")
         self.left_label.pack(pady=5)
-        self.left_slider = ctk.CTkSlider(self, from_=-40, to=0, number_of_steps=40, command=self.update_left_value, fg_color="#FF4C4C", progress_color="#FF0000")
+        self.left_slider = ctk.CTkSlider(self, from_=-40, to=0, number_of_steps=40, command=self.update_left_value, fg_color="#800080", progress_color="#FF0000")
         self.left_slider.pack(pady=5)
         self.left_value_label = ctk.CTkLabel(self, text="Left Value: 20", text_color="white")
         self.left_value_label.pack(pady=5)
@@ -84,23 +88,23 @@ class RecoilMacroApp(ctk.CTk):
         # Y (Down) Control Slider and Value
         self.y_label = ctk.CTkLabel(self, text='Y Control Value (Down)', text_color="white")
         self.y_label.pack(pady=5)
-        self.y_slider = ctk.CTkSlider(self, from_=0, to=40, number_of_steps=40, command=self.update_y_value, fg_color="#FF4C4C", progress_color="#FF0000")
+        self.y_slider = ctk.CTkSlider(self, from_=0, to=40, number_of_steps=40, command=self.update_y_value, fg_color="#800080", progress_color="#FF0000")
         self.y_slider.pack(pady=5)
         self.y_value_label = ctk.CTkLabel(self, text="Y Value: 20", text_color="white")
         self.y_value_label.pack(pady=5)
 
         # Set Button
-        self.set_button = ctk.CTkButton(self, text="Set Values", command=self.set_values, fg_color="#FF4C4C", hover_color="#FF2A2A")
+        self.set_button = ctk.CTkButton(self, text="Set Values", command=self.set_values, fg_color="#800080", hover_color="#FF2A2A")
         self.set_button.pack(pady=10)
 
         # Loadout Entry
-        self.loadout_name_entry = ctk.CTkEntry(self, placeholder_text="Enter Loadout Name", fg_color="#FF4C4C", text_color="white")
+        self.loadout_name_entry = ctk.CTkEntry(self, placeholder_text="Enter Loadout Name", fg_color="#800080", text_color="white")
         self.loadout_name_entry.pack(pady=10)
 
         # Save and Load Buttons
-        self.save_button = ctk.CTkButton(self, text="Save Loadout", command=self.save_loadout, fg_color="#FF4C4C", hover_color="#FF2A2A")
+        self.save_button = ctk.CTkButton(self, text="Save Loadout", command=self.save_loadout, fg_color="#800080", hover_color="#FF2A2A")
         self.save_button.pack(pady=5)
-        self.load_button = ctk.CTkButton(self, text="Load Loadout", command=self.load_loadout, fg_color="#FF4C4C", hover_color="#FF2A2A")
+        self.load_button = ctk.CTkButton(self, text="Load Loadout", command=self.load_loadout, fg_color="#800080", hover_color="#FF2A2A")
         self.load_button.pack(pady=5)
 
         # Hotkeys for toggling
