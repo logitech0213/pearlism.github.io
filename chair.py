@@ -20,7 +20,7 @@ aim_check = False
 x_value = 0
 y_value = 0
 left_value = 0
-delay_value = 1
+delay_value = 10
 enabled = False
 
 # Define a list of valid keys
